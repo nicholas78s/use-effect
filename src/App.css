@@ -1,0 +1,40 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+.users-list {
+  margin: 10px 10px;
+}
+.details {
+  margin: 10px 10px;
+}
+div.user {
+  cursor: pointer;
+  padding: 8px 16px;
+  margin: -1px 0;
+  border: 1px solid gray;
+}
+
+div.user.active {
+  background-color: blue;
+  color: white;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+.user-detail  {
+  display: flex;
+  flex-direction: column;
+}
+.user-detail div {
+  border: 1px solid gray;
+  padding: 10px 10px;
+}
+.user-detail div.avatar {
+  padding: 0 0;
+}
