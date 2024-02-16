@@ -9,12 +9,10 @@ export interface UserType {
 }
 
 export const List: React.FC = () => {
-  //const [users, setUsers] = useState<UserType[]>([]);
   const {users} = useContext(UsersContext);
 
   return (
     <div className="users-list">
-      {/* {users.map((user) => <div key={user.id} onClick={handleClick}>{user.name}</div>)} */}
       {users.map((user) => <User key={user.id} id={user.id} name={user.name} />)}
     </div>
   )

@@ -2,11 +2,9 @@ import { useContext } from 'react'
 import UsersContext from '../contexts/UsersContext';
 
 export const User = ({id, name}: {id: number, name: string}) => {
-  //const [active, setActive] = useState(false);
   const {activeUser, setActiveUser} = useContext(UsersContext);
 
   const handleClick = () => {
-    //e.preventDefault();
     setActiveUser(id);
   }
 

@@ -10,28 +10,27 @@ function App() {
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
-    //setTimeout(func, 1000);
+    setLoading(true);
     fetch(import.meta.env.VITE_API_URL)
       .then(res => res.json())
       .then(jsonData => {
-        console.log('Checkout this JSON! ', jsonData);
         setUsers(jsonData);
-        setLoading(false);
       })
-      .catch(err => { throw err });
+      .catch(err => { throw err })
+      .finally(() => {
+        setLoading(false);
+      });
   }, []);
   
   const item = {id: activeUser, name: ''};
   return (
-    <>
-      <UsersContext.Provider value={{users, setUsers, activeUser, setActiveUser}}>
-        {isLoading && <div>Loading...</div>}
-        <div className="container">
-          <List />
-          <Details item={item}/>
-        </div>
-      </UsersContext.Provider>
-    </>
+    <UsersContext.Provider value={{users, setUsers, activeUser, setActiveUser}}>
+      {isLoading && <div>Loading...</div>}
+      <div className="container">
+        <List />
+        <Details item={item}/>
+      </div>
+    </UsersContext.Provider>
   )
 }
 
